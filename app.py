@@ -9,7 +9,7 @@ from resume_analyzer import analyze_resume
 from pdf_generator import generate_resume_report_pdf
 
 # Load system environment variables if present
-load_dotenv()
+load_dotenv(override=True)
 
 # Page Setup
 st.set_page_config(
@@ -131,13 +131,13 @@ with st.sidebar:
     st.markdown("### **Analyzer Settings**")
     st.caption("Configure environment parameters below:")
     
-    env_key = os.environ.get("OPENAI_API_KEY", "")
+    env_key = os.environ.get("GROQ_API_KEY") or os.environ.get("GROK_API_KEY") or os.environ.get("OPENAI_API_KEY") or ""
     api_key_input = st.text_input(
-        "OpenAI API Key",
+        "OpenAI / Groq API Key",
         value=env_key,
         type="password",
-        placeholder="sk-...",
-        help="Input your OpenAI API key. We do not store keys; they are stored in-memory for your active session."
+        placeholder="sk-... or gsk_...",
+        help="Input your OpenAI or Groq API key. We do not store keys; they are stored in-memory for your active session."
     )
     
     selected_model = st.selectbox(
