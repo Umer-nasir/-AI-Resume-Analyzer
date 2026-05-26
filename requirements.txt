@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-openai
+crewai
+chromadb
+pypdf
+reportlab
+streamlit
+plotly
+python-dotenv
