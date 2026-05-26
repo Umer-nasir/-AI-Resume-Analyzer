@@ -77,8 +77,6 @@ def setup_resume_rag(pdf_path, openai_api_key):
 
     return FallbackVectorStore(chunks, embeddings)
 
-    return FallbackVectorStore(chunks, embeddings)
-
 
 def get_resume_context(vectorstore, job_description):
     results = vectorstore.similarity_search(job_description, k=4)
